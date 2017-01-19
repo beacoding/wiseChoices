@@ -41,7 +41,7 @@ var questions = {
       {
         reply: 'No',
         val: [10, -10],
-        consequence: "You couldn't get into your course"
+        consequence: "Woops. You couldn't get into your course. So you now have to drop out of school"
       }]
   },
   4: {

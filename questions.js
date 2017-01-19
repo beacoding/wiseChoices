@@ -14,6 +14,7 @@ module.exports = {
 	  choices: [{
 	    reply: 'Yes',
 	    val: [-250, 0.1],
+	    consequence: 'You ran out of money cause insurance cost too much'
 	  }, {
 	    reply: 'No',
 	    val: [0, -0.5],

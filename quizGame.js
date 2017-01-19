@@ -6,29 +6,21 @@ var x = 0;
 var y = 0.5;
 var target;
 var decisionSet = buildTree(questions);
+var initialized = false;
 
 var getChoiceString = function(choices) {
   return choices.join(" or ") + '?';
 }
 
-var initialize = function(decisionSet) {
-  var start = decisionSet[0];
-  prompt.start();
-
-  console.log('GPA: ' + x, 'Happiness: ' + y);
-  console.log(start.prompt);
-  console.log(getChoiceString([start.left.reply, start.right.reply]));
-
-  prompt.get(['response'], function(err, res) {
-    x += start.left.val[0];
-    y += start.left.val[1];
-    decisionSet.splice(0, 1);
-    startGame(decisionSet);
-  })
-}
-
 var startGame = function(decisionSet) {
-  var index = Math.floor(Math.random() * decisionSet.length);
+  var index;
+  if (!initialized) {
+    index = 0;
+    initialized = true;
+  } else {
+    index =  Math.floor(Math.random() * decisionSet.length);
+  }
+
   prompt.start();
 
   if (!decisionSet.length) {
@@ -71,4 +63,4 @@ var startGame = function(decisionSet) {
   })
 }
 
-initialize(decisionSet);
+startGame(decisionSet);

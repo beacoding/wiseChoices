@@ -1,98 +1,10 @@
 var prompt = require('prompt');
+var questions = require('./questions');
+var buildTree = require('./Tree');
 
 var x = 0;
 var y = 0.5;
 var target;
-
-var questions = {
-  0: {
-    prompt: 'You just started the school year with a perfect 4.0 GPA',
-    choices: [{
-      reply: 'Awesome',
-      val: [250, 0.2],
-    }, {
-      reply: 'Sweet',
-      val: [250, 0.2]
-    }]
-  },
-  1: {
-    prompt: 'Should you get health insurance?',
-    choices: [{
-      reply: 'Yes',
-      val: [-250, 0.1],
-    }, {
-      reply: 'No',
-      val: [0, -0.5],
-      consequence: 'All your employees are dead'
-    }]
-  },
-  3: {
-    prompt: 'You cannot get into a course. Should you use AnEyeOut?',
-    choices:
-      [{
-        reply: 'Yes',
-        val: [10, 0.3],
-        prompt: 'AnEyeout got into your Course!',
-        choices: [{
-          reply: 'Awesome',
-          val: [50, 0.2]
-        }]
-      },
-      {
-        reply: 'No',
-        val: [10, -10],
-        consequence: "Woops. You couldn't get into your course. So you now have to drop out of school"
-      }]
-  },
-  4: {
-    prompt: 'Do you think Chris is buff?',
-    choices:
-      [{
-        reply: 'Eh I guess',
-        val: [-100, -0.5],
-        consequence: 'How dare you lie. You are sentenced to bad grades for the rest of the year.'
-      },
-      {
-        reply: 'Duh',
-        val: [-100, -0.5],
-        consequence: 'How dare you lie. You are sentenced to bad grades for the rest of the year.'
-      }
-      ]
-  }
-}
-
-var Node = function(prompt, reply, val, consequence) {
-  this.prompt = prompt;
-  this.reply = reply;
-  this.val = val;
-  this.consequence = consequence;
-  this.left = null;
-  this.right = null;
-}
-
-var buildTree = function(json) {
-  var res = [];
-  var recurseThrough = function(node) {
-    if (!node) {
-      return;
-    }
-    var newNode = new Node(node.prompt, node.reply, node.val, node.consequence);
-    if (!node.choices) {
-      return newNode;
-    }
-
-
-    newNode.left = !!node ? recurseThrough(node.choices[0]) : null;
-    newNode.right = !!node ? recurseThrough(node.choices[1]) : null;
-    return newNode;
-  }
-
-  for (var key in json) {
-    res.push(recurseThrough(json[key]));
-  }
-  return res;
-}
-
 var decisionSet = buildTree(questions);
 
 var getChoiceString = function(choices) {

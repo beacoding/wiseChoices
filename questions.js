@@ -53,5 +53,5 @@ module.exports = {
 	      consequence: 'How dare you lie. You are sentenced to bad grades for the rest of the year.'
 	    }
 	    ]
-	}	
+	}
 }

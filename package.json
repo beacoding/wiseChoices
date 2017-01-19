@@ -1,0 +1,23 @@
+{
+  "name": "wisechoices",
+  "version": "1.0.0",
+  "description": "wise choices game",
+  "main": "quizGame.js",
+  "dependencies": {
+    "prompt": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/biancasubion/wiseChoices.git"
+  },
+  "author": "Bianca Subion",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/biancasubion/wiseChoices/issues"
+  },
+  "homepage": "https://github.com/biancasubion/wiseChoices#readme"
+}

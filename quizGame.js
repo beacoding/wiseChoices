@@ -103,7 +103,7 @@ var initialize = function(decisionSet) {
   var start = decisionSet[0];
   prompt.start();
 
-  console.log('Wealth: ' + x, 'Happiness: ' + y);
+  console.log('GPA: ' + x, 'Happiness: ' + y);
   console.log(start.prompt);
   console.log(getChoiceString([start.left.reply, start.right.reply]));
 
@@ -130,7 +130,7 @@ var startGame = function(decisionSet) {
   var choice1 = obj.left ? obj.left.reply : null;
   var choice2 = obj.right ? obj.right.reply : null;
 
-  console.log('Wealth: ' + x, 'Happiness: ' + y);
+  console.log('GPA: ' + x, 'Happiness: ' + y);
   console.log(obj.prompt);
   console.log(getChoiceString([choice1, choice2]));
 

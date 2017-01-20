@@ -13,7 +13,7 @@ module.exports = {
 	  prompt: 'Should you get health insurance?',
 	  choices: [{
 	    reply: 'Yes',
-	    val: [-250, 0.1],
+	    val: [-100, 0.1],
 	    consequence: 'You ran out of money cause insurance cost too much'
 	  }, {
 	    reply: 'No',
@@ -26,16 +26,16 @@ module.exports = {
 	  choices:
 	    [{
 	      reply: 'Yes',
-	      val: [10, 0.3],
+	      val: [300, 0.3],
 	      prompt: 'AnEyeout got into your Course!',
 	      choices: [{
 	        reply: 'Awesome',
-	        val: [50, 0.2]
+	        val: [500, 0.2]
 	      }]
 	    },
 	    {
 	      reply: 'No',
-	      val: [10, -10],
+	      val: [10, -0.4],
 	      consequence: "Woops. You couldn't get into your course. So you now have to drop out of school"
 	    }]
 	},
@@ -44,14 +44,51 @@ module.exports = {
 	  choices:
 	    [{
 	      reply: 'Eh I guess',
-	      val: [-100, -0.5],
+	      val: [-10, -0.1],
 	      consequence: 'How dare you lie. You are sentenced to bad grades for the rest of the year.'
 	    },
 	    {
-	      reply: 'Duh',
-	      val: [-100, -0.5],
+	      reply: 'Damn Right',
+	      val: [-10, -0.1],
 	      consequence: 'How dare you lie. You are sentenced to bad grades for the rest of the year.'
 	    }
 	    ]
+	},
+	5: {
+		prompt: 'Gregor caught you talking in class.',
+		choices:
+		  [{
+		    reply: "It wasn't me",
+		    val: [-50, -0.1],
+		    consequence: 'Gregor calls you out in class and stares you down that you never want to go to school again'
+		  },
+		  {
+		    reply: 'Slide down your desk',
+		    val: [-50, -0.1],
+		    consequence: 'Gregor still caught you'
+		  }
+		  ]
+	},
+	6: {
+	  prompt: 'Gateman asks you to buy his textbook',
+	  choices:
+	    [{
+	      reply: 'Cave in',
+	      val: [-80, 0.2],
+	      consequence: 'You ran out of money.',
+	      prompt: "You found a golden ticket in Gateman's textbook!",
+	      choices: [{
+	        reply: 'Awesome',
+	        val: [500, 0.2]
+	      },{
+	      	reply: 'Quit School',
+	      	val: [-1000, -1000],
+	      	consequence: 'You dropped out of school.'
+	      }]
+	    },
+	    {
+	      reply: 'Torrent it',
+	      val: [0, 0]
+	    }]
 	}
 }

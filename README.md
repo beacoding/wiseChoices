@@ -4,6 +4,6 @@ Game that keeps track of your happiness and GPA as you progress through the game
 
 
 ## Usage
-1. git clone https://github.com/biancasubion/wiseChoices
+1. git clone https://github.com/biancasubion/wiseChoices.git
 1. npm install
 1. node quizGame.js
